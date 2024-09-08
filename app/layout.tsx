@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {console.log(children)}
+
         <ConvexClientProvider>
           {children}
           {"dkfsdkfksdfds"}
