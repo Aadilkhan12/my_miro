@@ -22,7 +22,6 @@ export default function RootLayout({
 
         <ConvexClientProvider>
           {children}
-          {"dkfsdkfksdfds"}
         </ConvexClientProvider>
       </body>
     </html>
