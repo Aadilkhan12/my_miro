@@ -2,8 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import logo from "../../../public/logo.svg";
-// import { cn } from "../../../lib/utils";
+import logo from "../../../public/logo.svg"; 
+import { useSearchParams } from "next/navigation";
 import { cn } from "../../../lib/utils";
 import { Button } from "../../../src/components/ui/button";
 import { OrganizationSwitcher } from "@clerk/nextjs";
@@ -13,6 +13,8 @@ const font = Poppins({
   subsets: ["latin"],
 });
 export const OrgSidebar = () => {
+  const searchParams=useSearchParams();
+  const favorites = searchParams.get("favorites");
   return (
     <div className=" hidden lg:flex fex-col space-x-6 w-[260] pl-5 pt-5">
       <Link href="/">
@@ -45,7 +47,7 @@ export const OrgSidebar = () => {
         />
         <div className="space-y-1 w-full">
           <Button
-            variant={"ghost"}
+            variant={favorites ? "ghost" : "secondary"}
             asChild
             size={"lg"}
             className="font-normal justify-start px-2 w-full"
@@ -56,12 +58,17 @@ export const OrgSidebar = () => {
             </Link>
           </Button>
           <Button
-            variant={"ghost"}
+            variant={favorites ? "secondary" : "ghost"}
             asChild
             size={"lg"}
             className="font-normal justify-start px-2 w-full"
           >
-            <Link href="/">
+            <Link
+              href={{
+                pathname: "/",
+                query: { favorites: true },
+              }}
+            >
               <Star className="h-4 w-4 mr-2" />
               Favorite Boards
             </Link>
