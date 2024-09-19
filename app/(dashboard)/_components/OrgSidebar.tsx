@@ -31,6 +31,7 @@ export const OrgSidebar = () => {
               rootBox: {
                 display: "flex",
                 justifyContent: "center",
+                marginBottom:"5px",
                 alignItems: "center",
                 width: "100%",
               },
