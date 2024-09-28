@@ -13,7 +13,7 @@ interface ItemPorps {
 export const Item = ({ id, name, imageUrl }: ItemPorps) => {
   const { organization } = useOrganization();
   const { setActive } = useOrganizationList();
-  const isActive = organization.id != id;
+  const isActive = organization?.id != id;
   const onClick = () => {
     if (!setActive) return;
     setActive({ organization: id });
